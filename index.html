@@ -7,27 +7,43 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             background: #f4f4f9;
             color: #222;
+            transition: 0.3s;
+        }
+        body.dark {
+            background: #1a1a1a;
+            color: #f4f4f4;
         }
         header {
-            background: #4a4ad9;
+            background: linear-gradient(45deg, #4a4ad9, #6a6aff);
             color: white;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         nav {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             background: #2f2fa4;
-            padding: 10px;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
         nav a {
             color: white;
             text-decoration: none;
             font-weight: bold;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #cfcfff;
+        }
+        .dark nav {
+            background: #000;
         }
         section {
             padding: 30px;
@@ -36,10 +52,53 @@
         }
         .card {
             background: white;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            animation: fadeIn 0.7s ease;
+        }
+        body.dark .card {
+            background: #2a2a2a;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #topo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4a4ad9;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            display: none;
+            transition: 0.3s;
+        }
+        #topo:hover {
+            background: #6a6aff;
+        }
+        #darkModeBtn {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            background: #222;
+            color: white;
+            border: none;
+            padding: 10px 15px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        body.dark #darkModeBtn {
+            background: #ddd;
+            color: black;
         }
         footer {
             text-align: center;
@@ -47,6 +106,9 @@
             background: #2f2fa4;
             color: white;
             margin-top: 40px;
+        }
+        body.dark footer {
+            background: #000;
         }
     </style>
 </head>
@@ -59,7 +121,7 @@
     <nav>
         <a href="#marie">Marie Curie</a>
         <a href="#radio">Radioatividade</a>
-        <a href="#medicina">Radioatividade na Medicina</a>
+        <a href="#medicina">Na Medicina</a>
         <a href="#morretes">Morretes</a>
     </nav>
 
@@ -67,35 +129,55 @@
         <h2>Marie Curie</h2>
         <p>Marie Curie foi uma das mulheres mais importantes da história da ciência. Ela foi pioneira nos estudos da radioatividade, sendo a primeira pessoa a ganhar dois Prêmios Nobel em áreas diferentes: Física e Química. Mesmo enfrentando preconceitos por ser mulher, Marie revolucionou o mundo científico e abriu portas para futuras cientistas.</p>
         <p>Junto com seu marido Pierre Curie, Marie descobriu dois elementos químicos extremamente importantes: o polônio e o rádio. Seus estudos foram a base para tecnologias usadas até hoje em hospitais, laboratórios e pesquisas avançadas.</p>
+        <p>Além disso, Marie Curie criou unidades móveis de raio-X durante a Primeira Guerra Mundial, salvando milhares de vidas. Ela literalmente levou a ciência para o campo de batalha.</p>
     </section>
 
     <section id="radio" class="card">
         <h2>O que é Radioatividade?</h2>
         <p>A radioatividade é um fenômeno natural em que alguns átomos instáveis liberam energia em forma de radiação. Marie Curie foi a primeira pessoa a estudar isso profundamente e até criou o termo "radioatividade".</p>
-        <p>A radiação pode ser perigosa em grandes quantidades, mas quando bem controlada, se torna uma ferramenta essencial para salvar vidas, estudar materiais e impulsionar tecnologias modernas.</p>
+        <p>A radiação pode ser perigosa em quantidades elevadas, mas quando controlada, é essencial em diversas áreas: medicina, indústria, arqueologia e até geração de energia.</p>
     </section>
 
     <section id="medicina" class="card">
         <h2>Radioatividade na Medicina</h2>
-        <p>A radioatividade é fundamental para diagnósticos e tratamentos médicos. Entre as tecnologias mais usadas estão:</p>
         <ul>
-            <li><strong>Raio-X</strong> – usado para ver fraturas, tumores e estruturas internas.</li>
-            <li><strong>Tomografia Computadorizada (TC)</strong> – produz imagens em alta resolução do corpo.</li>
-            <li><strong>Radioterapia</strong> – usada no tratamento de vários tipos de câncer.</li>
-            <li><strong>Medicina Nuclear</strong> – usa substâncias radioativas para detectar doenças.</li>
+            <li><strong>Raio-X</strong> – detecta fraturas, tumores e estruturas internas.</li>
+            <li><strong>Tomografia Computadorizada (TC)</strong> – imagens detalhadas do corpo.</li>
+            <li><strong>Radioterapia</strong> – principal tratamento contra vários tipos de câncer.</li>
+            <li><strong>Medicina Nuclear</strong> – detecta doenças usando elementos radioativos.</li>
         </ul>
-        <p>Sem os estudos de Marie Curie, quase todas essas tecnologias não existiriam.</p>
+        <p>Sem os estudos de Marie Curie, essas tecnologias não existiriam.</p>
     </section>
 
     <section id="morretes" class="card">
-        <h2>Radioatividade e Medicina em Morretes</h2>
-        <p>Morretes é uma cidade histórica do litoral do Paraná, conhecida por sua beleza natural, o rio Nhundiaquara e a culinária como o famoso barreado. Embora seja uma cidade pequena, ela possui unidades de saúde que utilizam tecnologias médicas modernas.</p>
-        <p>Hospitais de cidades próximas, como Paranaguá e Curitiba, também atendem a população de Morretes e possuem equipamentos baseados em radioatividade, como máquinas de raio-X, tomografia e exames de medicina nuclear.</p>
-        <p>Ou seja, mesmo em uma cidade pequena, a ciência desenvolvida por Marie Curie está presente na vida da população.</p>
+        <h2>Morretes e a Tecnologia Médica</h2>
+        <p>Morretes é uma cidade histórica do litoral do Paraná, conhecida pelo rio Nhundiaquara, pela natureza preservada e pelo famoso barreado. Mesmo sendo pequena, está conectada ao avanço científico.</p>
+        <p>A cidade conta com unidades de saúde que utilizam equipamentos de raio-X, enquanto exames mais avançados, como tomografia e medicina nuclear, são realizados em Paranaguá e Curitiba, atendendo os moradores de Morretes.</p>
+        <p>A ciência de Marie Curie está presente no dia a dia da população.</p>
     </section>
+
+    <button id="topo">↑</button>
+    <button id="darkModeBtn">Modo Escuro</button>
 
     <footer>
         <p>Projeto Mulheres na Ciência – Desenvolvido por [Seu Nome]</p>
     </footer>
+
+    <script>
+        const topoBtn = document.getElementById("topo");
+        const darkBtn = document.getElementById("darkModeBtn");
+
+        window.onscroll = function() {
+            if (document.documentElement.scrollTop > 200) {
+                topoBtn.style.display = "block";
+            } else {
+                topoBtn.style.display = "none";
+            }
+        };
+
+        topoBtn.onclick = () => window.scrollTo({top: 0, behavior:'smooth'});
+
+        darkBtn.onclick = () => document.body.classList.toggle('dark');
+    </script>
 </body>
 </html>
